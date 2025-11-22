@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 32px;
+    background: linear-gradient(135deg, #1a0a4e 0%, #230DB5 50%, #1a0a4e 100%);
+    background-size: 400% 400%;
+    font-family: Georgia, Times, serif;
+}
+
+.container {
+    width: 400px;
+}
+
+.poster {
+    position: relative;
+    border-radius: 4px;
+}
+
+.tape {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 32px;
+    background-color: rgba(254, 243, 199, 0.7);
+    border: 1px solid rgb(253, 230, 138);
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.poster-content {
+    background-color: #f3f4f6;
+    padding: 32px 32px 16px;
+}
+
+.smiley {
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.poster-text {
+    text-align: center;
+    color: #dc2626;
+    font-weight: bold;
+    line-height: 0.95;
+}
+
+.text-line-large {
+    font-size: 68px;
+    letter-spacing: 0.03em;
+}
+
+.text-line-medium {
+    font-size: 52px;
+    letter-spacing: 0.03em;
+    margin-top: 4px;
+}
+
+.strips-container {
+    position: relative;
+    height: 120px;
+    width: 400px;
+    border-top: 2px dashed #d1d5db;
+    perspective: 1000px;
+}
+
+.strip {
+    position: absolute;
+    top: 0;
+    height: 120px;
+    cursor: pointer;
+}
+
+.strip-full {
+    position: absolute;
+    inset: 0;
+    background-color: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 5;
+}
+
+.strip:not(.torn):not(.tearing) .strip-full:hover {
+    transform: scaleY(1.03);
+    transform-origin: top center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: #e5e7eb;
+}
+
+.strip-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    color: #dc2626;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.stub {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #f3f4f6;
+    z-index: 2;
+}
+
+.strip.torn .strip-full {
+    display: none;
+}
+
+.strip.tearing .strip-full {
+    animation: tear 0.6s ease-in forwards;
+}
+
+@keyframes tear {
+    0% { 
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(30px) rotate(8deg);
+        opacity: 0.6;
+    }
+    100% { 
+        transform: translateY(180px) rotate(20deg);
+        opacity: 0;
+    }
+}
