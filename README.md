@@ -1,4 +1,3 @@
-# aws-tear-off-flyer
 # AWS Static Website Deployment with Terraform
 
 This is a static website deployment project built for AWS infrastructure. The website is a simple interactive tear-off flyer that runs in the browser and is hosted on Amazon S3 with global content delivery through CloudFront. All infrastructure is defined and deployed using Terraform so the entire setup can be recreated automatically.
