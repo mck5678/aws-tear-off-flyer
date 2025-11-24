@@ -9,7 +9,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "ca-central-1"
+  region = var.region
 }
 
 # S3 bucket
